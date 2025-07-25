@@ -14,7 +14,7 @@ router.register('users', UserViewSet, basename='user')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: redirect('api/')),
-    
+    path('api/users/', include('users.urls')),
     path('api/users/login/', LoginView.as_view(), name='login'),
     path('api-auth/', include('rest_framework.urls')),
     path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
